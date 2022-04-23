@@ -23,7 +23,7 @@
                                 <segment title="A-Z"/>
                             </segments>
                             <connections>
-                                <action selector="sortingList:" destination="qX0-tw-d0x" eventType="valueChanged" id="1YQ-bZ-RKp"/>
+                                <action selector="segmentedControl:" destination="qX0-tw-d0x" eventType="valueChanged" id="E9V-U5-2uM"/>
                             </connections>
                         </segmentedControl>
                         <prototypes>

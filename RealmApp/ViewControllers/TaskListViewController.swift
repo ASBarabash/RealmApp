@@ -11,6 +11,8 @@ import RealmSwift
 
 class TaskListViewController: UITableViewController {
 
+
+    
     var taskLists: Results<TaskList>!
     
     override func viewDidLoad() {
@@ -25,6 +27,7 @@ class TaskListViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = editButtonItem
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +86,17 @@ class TaskListViewController: UITableViewController {
         tasksVC.taskList = taskList
     }
 
+// Segmented Control
+    @IBAction func segmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.taskLists = self.taskLists.sorted(byKeyPath: "date", ascending: false)
+        default:
+            self.taskLists = self.taskLists.sorted(byKeyPath: "name")
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func sortingList(_ sender: UISegmentedControl) {
     }
     
