@@ -45,7 +45,12 @@ class TaskListViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         let taskList = taskLists[indexPath.row]
         content.text = taskList.name
-        content.secondaryText = "\(taskList.tasks.count)"
+        let currentTask = taskList.tasks.filter("isComplete = false")
+                if currentTask.count == 0 {
+                    content.secondaryText = "✔️"
+                } else {
+                    content.secondaryText = "\(currentTask.count)"
+                }
         cell.contentConfiguration = content
         return cell
     }
@@ -95,9 +100,6 @@ class TaskListViewController: UITableViewController {
             self.taskLists = self.taskLists.sorted(byKeyPath: "name")
         }
         tableView.reloadData()
-    }
-    
-    @IBAction func sortingList(_ sender: UISegmentedControl) {
     }
     
     @objc private func addButtonPressed() {
