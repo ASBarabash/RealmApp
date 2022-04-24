@@ -53,6 +53,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41D0A9F5281555F6004D1E3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A872A11520E9D82600ECE2BA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		41D0A9F628155633004D1E3D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A872A11220E9D82400ECE2BA /* Main.storyboard */,
+				A872A11720E9D82600ECE2BA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		41D0A9F72815566D004D1E3D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A872A10E20E9D82400ECE2BA /* AppDelegate.swift */,
+				A872A11A20E9D82600ECE2BA /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		A81BC31C256FED21002D9595 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +111,9 @@
 				A81BC31C256FED21002D9595 /* ViewControllers */,
 				A8969B33270F34B700F7DED0 /* Models */,
 				A8969B34270F34C900F7DED0 /* Services */,
-				A872A10E20E9D82400ECE2BA /* AppDelegate.swift */,
-				A872A11220E9D82400ECE2BA /* Main.storyboard */,
-				A872A11520E9D82600ECE2BA /* Assets.xcassets */,
-				A872A11720E9D82600ECE2BA /* LaunchScreen.storyboard */,
-				A872A11A20E9D82600ECE2BA /* Info.plist */,
+				41D0A9F628155633004D1E3D /* Storyboards */,
+				41D0A9F72815566D004D1E3D /* App */,
+				41D0A9F5281555F6004D1E3D /* Resources */,
 			);
 			path = RealmApp;
 			sourceTree = "<group>";
@@ -347,7 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CMB6GH46SU;
-				INFOPLIST_FILE = RealmApp/Info.plist;
+				INFOPLIST_FILE = RealmApp/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CMB6GH46SU;
-				INFOPLIST_FILE = RealmApp/Info.plist;
+				INFOPLIST_FILE = RealmApp/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

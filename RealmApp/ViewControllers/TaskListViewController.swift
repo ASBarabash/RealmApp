@@ -11,8 +11,6 @@ import RealmSwift
 
 class TaskListViewController: UITableViewController {
 
-
-    
     var taskLists: Results<TaskList>!
     
     override func viewDidLoad() {
@@ -46,8 +44,8 @@ class TaskListViewController: UITableViewController {
         let taskList = taskLists[indexPath.row]
         content.text = taskList.name
         let currentTask = taskList.tasks.filter("isComplete = false")
-                if currentTask.count == 0 {
-                    content.secondaryText = "✔️"
+        if taskLists[indexPath.row].tasks.count > 0 && currentTask.count == 0 {
+            content.secondaryText = "✔️"
                 } else {
                     content.secondaryText = "\(currentTask.count)"
                 }

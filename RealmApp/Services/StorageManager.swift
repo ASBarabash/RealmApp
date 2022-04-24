@@ -53,9 +53,9 @@ class StorageManager {
         }
     }
     
-    func delete(_ task: Task, to taskList: TaskList) {
+    func delete(_ task: Task) {
         write {
-            taskList.realm?.delete(task)
+            realm.delete(task)
         }
     }
     
@@ -66,10 +66,9 @@ class StorageManager {
         }
     }
     
-    func done(_ task: Task, to taskList: TaskList) {
+    func done(_ task: Task, for bool: Bool) {
         write {
-            taskList.tasks.setValue(true, forKey: "isComplete")
-            //доработать
+            task.setValue(bool, forKey: "isComplete")
         }
     }
     

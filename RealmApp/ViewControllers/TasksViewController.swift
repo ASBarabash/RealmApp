@@ -63,10 +63,12 @@ class TasksViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
-
+        let actionName = indexPath.section == 0 ? "Done" : "Undone"
+        let isComplete = indexPath.section == 0 ? true : false
+        let newSection = IndexPath(row: 0, section: indexPath.section == 0 ? 1 : 0)
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            StorageManager.shared.delete(task, to: self.taskList)
+            StorageManager.shared.delete(task)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
@@ -77,10 +79,9 @@ class TasksViewController: UITableViewController {
             isDone(true)
         }
         
-        let doneAction = UIContextualAction(style: .normal, title: "Done") { _, _, isDone in
-            StorageManager.shared.done(task, to: self.taskList)
-           
-            // доработать
+        let doneAction = UIContextualAction(style: .normal, title: actionName) { _, _, isDone in
+            StorageManager.shared.done(task, for: isComplete)
+            tableView.moveRow(at: indexPath, to: newSection)
             isDone(true)
         }
         
@@ -90,8 +91,6 @@ class TasksViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
         
     }
-    
-    
     
     @objc private func addButtonPressed() {
         showAlert()
