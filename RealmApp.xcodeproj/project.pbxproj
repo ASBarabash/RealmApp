@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4116B702281349FD005AF444 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4116B701281349FD005AF444 /* Realm */; };
 		4116B704281349FD005AF444 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4116B703281349FD005AF444 /* RealmSwift */; };
+		41ED7E86281ACAB400DC6DC9 /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ED7E85281ACAB400DC6DC9 /* Extension + UITableViewCell.swift */; };
 		A804828427103A010095A493 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804828327103A010095A493 /* DataManager.swift */; };
 		A804828627103A100095A493 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804828527103A100095A493 /* StorageManager.swift */; };
 		A804828827103BFD0095A493 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804828727103BFD0095A493 /* TaskList.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41ED7E85281ACAB400DC6DC9 /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		A804828327103A010095A493 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A804828527103A100095A493 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A804828727103BFD0095A493 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				A872A12020E9D87400ECE2BA /* TaskListViewController.swift */,
 				A872A12220E9D88E00ECE2BA /* TasksViewController.swift */,
 				A8E78FE8241A76EE00E66973 /* AlertController.swift */,
+				41ED7E85281ACAB400DC6DC9 /* Extension + UITableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				A804828627103A100095A493 /* StorageManager.swift in Sources */,
 				A872A12120E9D87400ECE2BA /* TaskListViewController.swift in Sources */,
 				A872A12320E9D88E00ECE2BA /* TasksViewController.swift in Sources */,
+				41ED7E86281ACAB400DC6DC9 /* Extension + UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

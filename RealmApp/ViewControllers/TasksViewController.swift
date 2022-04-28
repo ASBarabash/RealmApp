@@ -64,8 +64,8 @@ class TasksViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
         let actionName = indexPath.section == 0 ? "Done" : "Undone"
-        let isComplete = indexPath.section == 0 ? true : false
-        let newSection = IndexPath(row: 0, section: indexPath.section == 0 ? 1 : 0)
+        
+        
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             StorageManager.shared.delete(task)
@@ -80,8 +80,18 @@ class TasksViewController: UITableViewController {
         }
         
         let doneAction = UIContextualAction(style: .normal, title: actionName) { _, _, isDone in
-            StorageManager.shared.done(task, for: isComplete)
-            tableView.moveRow(at: indexPath, to: newSection)
+            StorageManager.shared.done(task)
+            let indexPathForCurrentTask = IndexPath(
+                row: self.currentTasks.index(of: task) ?? 0,
+                section: 0
+            )
+            let indexPathForCompletedTask = IndexPath(
+                row: self.completedTasks.index(of: task) ?? 0,
+                section: 1
+            )
+            let destinationIndexRow = indexPath.section == 0 ? indexPathForCompletedTask : indexPathForCurrentTask
+            tableView.moveRow(at: indexPath, to: destinationIndexRow)
+            
             isDone(true)
         }
         
@@ -106,7 +116,7 @@ extension TasksViewController {
         
         alert.action(with: task) { newValue, note in
             if let task = task, let completion = completion {
-                StorageManager.shared.edit(task, to: self.taskList, newValue: newValue, note: note)
+                StorageManager.shared.edit(task, to: newValue, note: note)
                 completion()
             } else {
                 self.saveTask(withName: newValue, andNote: note)
